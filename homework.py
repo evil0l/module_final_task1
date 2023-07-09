@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+
 
 # 1. окрыть главную страницу
 # 2. открыть страницу логин
@@ -13,12 +13,10 @@ from selenium.webdriver.chrome.options import Options
 URL = 'https://www.saucedemo.com/'
 LOGIN = 'standard_user'
 PASSWORD = 'secret_sauce'
-o = Options()
-o.add_experimental_option("detach", True)
-#driver = webdriver.Chrome(options=o)
+
 
 def get_driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=o)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     return driver
 
 
