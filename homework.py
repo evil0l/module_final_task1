@@ -37,9 +37,12 @@ def element_click(xpath, driver):
     element.click()
 
 def login(login, password):
-    element_send_keys(xpath="user-name", driver=driver, text=login)
-    element_send_keys(xpath="password", driver=driver, text=password)
-    element_click(xpath='login-button', driver=driver)
+    element_send_keys(xpath="user-name", driver=webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
+                              options=chrome_options), text=login)
+    element_send_keys(xpath="password", driver=webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
+                              options=chrome_options), text=password)
+    element_click(xpath='login-button', driver=webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
+                              options=chrome_options))
 
 
 def get_element_by_id(xpath, driver):
